@@ -13,7 +13,7 @@ const resolveProgress = document.getElementById("resolve-progress")
 const waitProgress = document.getElementById("wait-progress")
 const dataPromises = new Map()  // promise ID => data generator function
 const inFlightRequests = new Map()
-const workerUrl = "worker.js?xy"
+const workerUrl = "worker.js?v=2"
 let resolveProgressCount = 0
 let nextRequestId = 0
 let worker
