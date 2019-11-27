@@ -23,7 +23,7 @@ let useCliboardPromiseTechnique = true
 // Are all the APIs needed available?
 let incompatible = []
 if (typeof SharedWorker == "undefined") {
-  incompatible.push("Service Worker API is unavailable")
+  incompatible.push("Shared Worker API is unavailable")
 }
 if (!("clipboard" in navigator)) {
   incompatible.push("Clipboard API is unavailable")
