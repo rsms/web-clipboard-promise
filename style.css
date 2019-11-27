@@ -1,0 +1,117 @@
+:root {
+  --fontSize: 14px;
+}
+
+body {
+  background: white;
+  color: black;
+  padding: 32px;
+  padding-bottom: 4em;
+  max-width: 864px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 { letter-spacing: -0.015em; }
+b { font-weight:600; }
+
+#copy-target {
+  padding: 1em;
+  border: 2px solid #999;
+  background: #eee;
+  border-radius: 3px;
+}
+#copy-target:focus {
+  border-color: var(--blue);
+  outline: none;
+}
+
+#paste {
+  padding: 1em;
+  background: #fffacc;
+  border: 2px solid #eedd00;
+  border-radius: 3px;
+  transition: 500ms all ease-out;
+}
+#paste.updated {
+  transition: 100ms all ease-out;
+  background: #ffee00;
+  border-color: #eecc00;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+#incompatible {
+  padding: 1em;
+  background: #ffeeee;
+  border-radius: 3px;
+  display: none;
+}
+#incompatible.visible {
+  display: block;
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin: 2px;
+  border: 2px solid white;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: black transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) { animation-delay: -0.45s; }
+.lds-ring div:nth-child(2) { animation-delay: -0.3s; }
+.lds-ring div:nth-child(3) { animation-delay: -0.15s; }
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.progress {
+  font-size:16px;
+  line-height:20px;
+  font-weight: 500;
+  align-items: center;
+  margin: 2em 0;
+  display: none;
+}
+.progress svg {
+  margin-right: 1em;
+}
+.progress.visible { display: flex; }
+.progress.visible svg { animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite; }
+.progress .lds-ring {
+  margin-right: 0.4em;
+}
+
+#resolve-progress { color: var(--blue); }
+#resolve-progress .lds-ring div { border-color: var(--blue) transparent transparent transparent; }
+#wait-progress { color: hotpink; }
+#wait-progress .lds-ring div { border-color: hotpink transparent transparent transparent; }
+
+#about {
+  margin-top: 4em;
+}
+
+#about img {
+  display: block;
+  margin: 3em 0 4em 0 !important;
+  max-width:100%;
+}

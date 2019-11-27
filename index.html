@@ -1,0 +1,76 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Clipboard promises demo</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="https://rsms.me/raster/raster.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Clipboard promises demo</h1>
+  <ol class=compact>
+    <li>Open two windows or tabs of this page.</li>
+    <li>Copy in one of them. This queues up a clipboard promise.</li>
+    <li>Paste in the other one. The data is produced by the copy-from tab and delivered.</li>
+  </ol>
+
+  <pre id="copy-target" contenteditable>Edit and select this text and copy it.
+Paste in another tab.</pre>
+
+  <h3>Pasted stuff shows up here:</h3>
+  <pre id="paste"></pre>
+
+  <div id="resolve-progress" class="progress">
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    Simulating slow generation of data...
+  </div>
+
+  <div id="wait-progress" class="progress">
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </svg>
+    Pasting...
+  </div>
+
+  <div id="incompatible">
+    <p>⚠ Clipboard promise technique <b>disabled</b> because of the following reasons:</p>
+    <ul class=compact></ul>
+    <p>This demo will fall back to classic synchronous clipboard access.</p>
+  </div>
+
+  <div id="about">
+    <h2>How does this work?</h2>
+    <p>
+      There are three things in play:
+      <ul class=compact>
+        <li>One or more web pages running your application</li>
+        <li>a Shared Worker coordinating between web pages</li>
+        <li>The Clipboard</li>
+      </ul>
+    </p>
+    <img src="about-1.svg?v2" width="800">
+    <p>
+      Now, when the user invokes "copy", the following happens:
+    </p>
+    <img src="about-2.svg?v2" width="800">
+    <p>
+      The Shared Worker is essentially used as a connective tissue; glue that holds the
+      many web page instances together.
+    </p>
+    <p>
+      Later, when the user invokes "paste", this goes down:
+    </p>
+    <img src="about-3.svg?v2" width="800">
+    <p>
+      When copy and pasting locally, we would simply short-circuit the lookup and never
+      even talk with the shared worker.
+    </p>
+  </div>
+
+  <p style="margin-top:4em">
+    <a href="https://github.com/rsms/web-clipboard-promise">Source code &rarr;</a>
+  </p>
+
+  <script src="app.js"></script>
+</body>
+</html>
