@@ -7,7 +7,7 @@ Try it out: <https://rsms.me/web-clipboard-promise/>
 It makes use of Shared Workers and the new-ish Clipboard API.
 This demo only works in browsers with these APIs available and enabled.
 
-![Animation demo](demo/gif)
+![Animation demo](demo.gif)
 
 
 ## Clipboard access on the Web platform
