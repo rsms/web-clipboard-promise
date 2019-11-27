@@ -84,3 +84,6 @@ apps.
 
 It uses the new Clipboard API as well to populate the clipboard.
 
+Note: In a real-world implementation on "copy", you would want to immediately begin the process
+of generating the data and writing it to the clipboard as soon as you are done, in order to allow
+paste to work in other apps.
